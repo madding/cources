@@ -1,0 +1,40 @@
+AllCops:
+  Exclude:
+    - '.rubocop.yml'
+    - 'Gemfile.lock'
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+  Exclude:
+    - spec/**/*.rb
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: nested
+  SupportedStyles:
+    - nested
+    - compact
+  Exclude:
+    - spec/**/*.rb
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*.rb
+
+Style/RegexpLiteral:
+  EnforcedStyle: slashes
+  SupportedStyles:
+    - slashes
+    - percent_r
+    - mixed
+  AllowInnerSlashes: false
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - rakelib/*.rake
+    - Rakefile
+
+Style/Lambda:
+  EnforcedStyle: literal

@@ -1,0 +1,13 @@
+%h1 Current course
+
+- if @current_course.present?
+  .course-block
+    .row.USD
+      .col
+        Доллар США $ —
+        %span#dollar-value= number_to_currency(@current_course.dollar_value)
+
+    .row.EUR
+      .col
+        Евро € —
+        %span#euro-value= number_to_currency(@current_course.euro_value)

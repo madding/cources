@@ -13,8 +13,4 @@ class GetNewCourseJob < ApplicationJob
       logger.debug(service.error_message)
     end
   end
-
-  # def set_new_job_in_queue
-  #   UpdateCourseJob.set(wait: 10.minute).perform_later
-  # end
 end

@@ -1,0 +1,11 @@
+%h1 Set new Course
+
+.last-cources
+
+= simple_form_for(@course, url: admin_cources_path) do |f|
+  = f.input :dollar_value, label: 'Course for dollar'
+  = f.input :euro_value, label: 'Course for euro'
+  = f.input :expired_at, label: 'Course expired at'
+
+  = f.submit 'Create', class: 'btn btn-primary'
+

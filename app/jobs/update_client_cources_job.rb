@@ -4,6 +4,7 @@ class UpdateClientCourcesJob < ApplicationJob
   queue_as :default
 
   def perform(course)
-    ActionCable.server.broadcast('cources', course.message_data) if course.present?
+    decorated_course = CourseDecorator.new(course).decorate
+    ActionCable.server.broadcast('cources', decorated_course.message_data)
   end
 end

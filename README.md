@@ -22,3 +22,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+ docker-compose build
+ docker-compose up
+ docker-compose run web bundle exec rake db:create
+ docker-compose run web bundle exec rake db:migrate

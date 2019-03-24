@@ -14,10 +14,10 @@ class Course < ApplicationRecord
   after_create :update_information_on_clients
 
   def self.current
-    not_manual.or(not_expired).order(:expired_at, :created_at).last
+    manual.not_expired.order(:expired_at).last || not_manual.order(:created_at).last
   end
 
-  def fill_from_last_manual!
+  def fill_from_last_manual
     if last_manual = Course.manual.last
       assign_attributes(
         dollar_value: last_manual.dollar_value,
@@ -25,13 +25,7 @@ class Course < ApplicationRecord
         expired_at: last_manual.expired_at
       )
     end
-  end
-
-  def message_data
-    {
-      euro_value: euro_value,
-      dollar_value: dollar_value
-    }
+    self
   end
 
   def validate_expired_at_after_now

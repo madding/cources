@@ -75,6 +75,9 @@ group :test do
   gem 'chromedriver-helper'
 
   gem 'rspec-rails', '~> 3.7'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
+  gem 'timecop'
   gem 'webmock'
 end
 

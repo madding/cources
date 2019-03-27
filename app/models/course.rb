@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Course < ApplicationRecord
-  attr_accessor :skip_expired_at_validation
   scope :manual, -> { where(manual: true) }
   scope :not_manual, -> { where(manual: false) }
   scope :not_expired, -> { where('expired_at > ?', Time.now) }
@@ -9,7 +8,7 @@ class Course < ApplicationRecord
   validates :euro_value, :dollar_value, presence: true, numericality: { greater_than: 0.0 }
   validates :expired_at, presence: true, if: :manual?
 
-  validate :validate_expired_at_after_now, on: :create, if: ->(c) { !c.skip_expired_at_validation && c.manual? }
+  validate :validate_expired_at_after_now, on: :create, if: :manual?
 
   after_create :update_information_on_clients
 

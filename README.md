@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/madding/cources.svg?branch=master)](https://travis-ci.com/madding/cources)
+
 # How to run app:
 
 ```
